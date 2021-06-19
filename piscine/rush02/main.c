@@ -1,11 +1,17 @@
 /*
     NEED TO...
 
-    .think about parsing and dict errors
+    .think again and again about parsing and dict errors
 
-    .handle non printable char in parsing
+    .handle non printable char in parsing ?
 
-    .handle numbers as same as in atoi, in dict or param or both ?
+    .when get_value return null afficher "Dict Error\n"
+
+    .makefile
+
+    .free all
+
+    ."Les nombres doivent être gérés de la même manière qu’atoi" ? (probably numbers in dict)
 */
 
 #include <fcntl.h>
@@ -31,7 +37,8 @@ int err(void)
 
 void    *err_msg(char *msg)
 {
-    printf("Error: %s\n", msg);
+    ft_putstr(msg);
+    ft_putstr("\n");
     return (NULL);
 }
 
@@ -76,10 +83,10 @@ char    *get_data(char *filename)
 
     fd = open(filename, O_RDONLY);
     if (fd == -1)
-        return (err_msg("Could not open file"));
+        return (err_msg("Dict Error"));
     data = malloc(sizeof(char) * 1);
     if (!data)
-        return (err_msg("Malloc in get_data"));
+        return (NULL);
     *data = '\0';
     n = 1;
     while (n > 0 && data)
@@ -89,7 +96,7 @@ char    *get_data(char *filename)
         data = add_buff(&data, buff);
     }
     if (n == -1 || !data)
-        return (err_msg("Reading file or add_buff->null"));
+        return (err_msg("Dict Error"));
     return (data);
 }
 
