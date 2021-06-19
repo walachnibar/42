@@ -89,4 +89,3 @@ char    **ft_split(char *str,char *charset)
     res[i] = NULL;
     return (res);
 }
-
