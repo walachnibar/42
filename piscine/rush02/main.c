@@ -134,29 +134,6 @@ void    print_dict(char **dict)
     }
 }
 
-/*
-char    *my_pretty_little_special_atoi(char *param)
-{
-    int i;
-    int neg;
-    char    *res;
-
-    neg = 0;
-    while (*param && (*param == '\v' || *param == '\n' || *param == '\t'
-        || *param == '\r' || *param == '\f' || *param == '\v'))
-        param++;
-    if (*param == '-' || *param == '+')
-    {
-        if (*param == '-')
-            neg = 1;
-        param++;
-    }
-    i = 0;
-    while (param[i] && param[i] >= '0' && param[i] <= '9')
-        i++;
-}
-*/
-
 int check_param(char *param)
 {
     int i;
