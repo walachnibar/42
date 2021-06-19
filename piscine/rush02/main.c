@@ -272,12 +272,13 @@ void    print_nbr(char **dict, char *nbr)
             ft_putstr(" ");
         }
         nbr++;
-        if (*nbr != '0')
+        if (*nbr && *nbr != '0')
             ft_putstr(get_value(dict, create_minouscoulous_key(nbr)));
         nbr++;
-        if (*nbr != '0' && *(nbr - 1) != '1' && (*(nbr - 1) != '0' || *(nbr - 2) != '0'))
+        if (*nbr && *nbr != '0' && *(nbr - 1) != '1')
         {
-            ft_putstr(" ");
+            if (*(nbr - 1) != '0')
+                ft_putstr(" ");
             ft_putstr(get_value(dict, char_to_str(*nbr)));
         }
         if (*nbr && *(nbr + 1) && (*nbr != '0' || *(nbr - 1) != '0' || *(nbr - 2) != '0'))
