@@ -240,6 +240,11 @@ void    print_nbr(char **dict, char *nbr)
     n = ft_strlen(nbr) % 3;
     ft_putstr(nbr);
     ft_putstr(" : ");
+    if (ft_strlen(nbr) == 1 && nbr[0] == '0')
+    {
+        ft_putstr(get_value(dict, nbr));
+        return ;
+    }
     if (n)
     {
         if (n == 1)
