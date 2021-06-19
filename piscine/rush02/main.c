@@ -296,21 +296,47 @@ void    print_nbr(char **dict, char *nbr)
     }
 }
 
+char    *init_str(char *str)
+{
+    int i;
+    char    *res;
+
+    res = malloc(sizeof(char) * (ft_strlen(str) + 1));
+    if (!res)
+        return (NULL);
+    i = -1;
+    while (str[++i])
+        res[i] = str[i];
+    res[i] = '\0';
+    return (res);
+}
+
 int main(int ac, char **av)
 {
     char    *data;
-    char    *filename = "numbers.dict";
+    char    *filename;
     char    **dict;
+    char    *nbr;
 
     if (ac != 2 && ac != 3)
         return (err());
-    if (!check_param(av[1]))
+    if (ac == 3)
+    {
+        nbr = av[2];
+        filename = av[1];
+    }
+    else
+    {
+        nbr = av[1];
+        filename = init_str("numbers.dict");
+    }
+    if (!check_param(nbr))
         return (err());
     data = get_data(filename);
     dict = get_dict(data);
     print_dict(dict);
     printf("\n");
-    print_nbr(dict, av[1]);
+    print_nbr(dict, nbr);
     printf("\n\nLet's fcking go boi\n");
     return (0);
 }
