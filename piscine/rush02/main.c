@@ -280,13 +280,13 @@ void    print_nbr(char **dict, char *nbr)
             ft_putstr(" ");
             ft_putstr(get_value(dict, char_to_str(*nbr)));
         }
-        nbr++;
-        if (*nbr && (*nbr != '0' || *(nbr - 1) != '0' || *(nbr - 2) != '0'))
+        if (*nbr && *(nbr + 1) && (*nbr != '0' || *(nbr - 1) != '0' || *(nbr - 2) != '0'))
         {
             ft_putstr(" ");
             ft_putstr(get_value(dict, create_enormimousgigagocoulous_key(nbr)));
             ft_putstr(" ");
         }
+        nbr++;
     }
 }
 
